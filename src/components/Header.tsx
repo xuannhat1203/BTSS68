@@ -46,8 +46,13 @@ function Header() {
     setIsOpen(false);
   };
 
-  const handleFilter = (status: string) => {
-    dispatch({ type: status === "Đã trả" ? "True" : "False" });
+  const handleFilter = (trangThai: string) => {
+    console.log(trangThai);
+
+    dispatch({
+      type: trangThai,
+      payload: listBooks,
+    });
   };
 
   return (
@@ -64,9 +69,9 @@ function Header() {
         </h2>
       </div>
       <select onChange={(e) => handleFilter(e.target.value)}>
-        <option value="">Chọn bộ lọc</option>
-        <option value="Đã trả">Đã trả</option>
-        <option value="Chưa trả">Chưa trả</option>
+        <option value="All">Chọn bộ lọc</option>
+        <option value="True">Đã trả</option>
+        <option value="False">Chưa trả</option>
       </select>
       <div style={{ border: "none" }}>
         <button
